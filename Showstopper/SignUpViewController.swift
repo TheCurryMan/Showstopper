@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [#colorLiteral(red: 0.1647058824, green: 0.9607843137, blue: 0.5960784314, alpha: 1), #colorLiteral(red: 0.03137254902, green: 0.6823529412, blue: 0.9176470588, alpha: 1)])
+        self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [HexColor("#ee0979")!, HexColor("#ff6a00")!])
         
         NotificationCenter.default.addObserver(self, selector:#selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -37,8 +37,14 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             
-            //User.currentUser.setUpUser()
-            self.performSegue(withIdentifier: "signup", sender: nil)
+            User.currentUser.setUpUser()
+            var hasCurrentOutfit = User.currentUser.checkCurrentOutfit()
+            
+            if hasCurrentOutfit {
+                self.performSegue(withIdentifier: "home1", sender: nil)
+            } else {
+                self.performSegue(withIdentifier: "signin", sender: nil)
+            }
             
         } else {
             print("user is NOT signed in")
@@ -50,10 +56,10 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error == nil {
-                //User.currentUser.setUID()
+                User.currentUser.setUID()
                 let ref : DatabaseReference! = Database.database().reference()
                 ref.child("users").child(user!.uid).updateChildValues(["name": self.firstNameField.text!])
-                self.performSegue(withIdentifier: "signup", sender: self)
+                self.performSegue(withIdentifier: "signin", sender: self)
             }
         }
     }

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,19 +17,84 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home View Controller-->
+        <scene sceneID="h6h-0P-3Ds">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="ICS-zV-YMf" customClass="HomeViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fLB-Zp-dkj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="klJ-On-kzj"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jdx-bp-n5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="662" y="701"/>
+        </scene>
+        <!--Take Picture View Controller-->
+        <scene sceneID="BCl-sx-W1W">
+            <objects>
+                <viewController id="MCK-DA-XmQ" customClass="TakePictureViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Yt-YC-z1R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Clothes to your Closet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6Q-RB-Vjv">
+                                <rect key="frame" x="33" y="49" width="308" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CD4-2O-byR">
+                                <rect key="frame" x="138" y="547" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0Ut-DR-odW"/>
+                                    <constraint firstAttribute="height" constant="100" id="Jvv-Ff-roS"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="photo-camera"/>
+                                <connections>
+                                    <action selector="takePhoto:" destination="MCK-DA-XmQ" eventType="touchUpInside" id="eD8-ru-lCr"/>
+                                </connections>
+                            </button>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dZB-3O-ujv">
+                                <rect key="frame" x="16" y="111" width="343" height="380"/>
+                                <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="LN9-n1-aEV"/>
+                                    <constraint firstAttribute="height" constant="380" id="scn-ua-V3e"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C40-Nv-kUD">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="MCK-DA-XmQ" id="oBe-KA-eVp"/>
+                                    <outlet property="delegate" destination="MCK-DA-XmQ" id="oNg-5e-bry"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dZB-3O-ujv" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="1xj-NG-U9N"/>
+                            <constraint firstItem="CD4-2O-byR" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="bRX-nU-t3O"/>
+                            <constraint firstItem="jye-hf-lTZ" firstAttribute="bottom" secondItem="CD4-2O-byR" secondAttribute="bottom" constant="20" id="dKq-P5-gPE"/>
+                            <constraint firstItem="dZB-3O-ujv" firstAttribute="top" secondItem="d6Q-RB-Vjv" secondAttribute="bottom" constant="33" id="pZV-4v-4PE"/>
+                            <constraint firstItem="d6Q-RB-Vjv" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="v8t-8B-Hoe"/>
+                            <constraint firstItem="d6Q-RB-Vjv" firstAttribute="top" secondItem="jye-hf-lTZ" secondAttribute="top" constant="29" id="yi7-CY-4Vk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jye-hf-lTZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="dZB-3O-ujv" id="z5m-LF-hFy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3p-Iw-Gia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661.60000000000002" y="22.938530734632685"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="snI-Gw-WUD">
@@ -50,6 +114,9 @@
                                 <state key="normal" title="Have an account? Log In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vGb-in-h0a" kind="presentation" id="HEZ-dO-wbd"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-5H-rn8">
                                 <rect key="frame" x="37" y="353" width="300" height="40"/>
@@ -75,8 +142,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpUser:" destination="gYG-x5-xJa" eventType="touchUpInside" id="Bm1-7f-emt"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showstopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="RlW-f0-474"/>
@@ -138,6 +208,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7qX-3S-srF"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="c6l-gd-CIM" id="HD3-ax-Fps"/>
+                        <outlet property="firstNameField" destination="Q0V-5H-rn8" id="oQb-7A-ezQ"/>
+                        <outlet property="passwordField" destination="nYd-W4-IoM" id="83K-4j-vg4"/>
+                        <segue destination="ICS-zV-YMf" kind="presentation" identifier="home1" id="rJE-Qb-f8W"/>
+                        <segue destination="MCK-DA-XmQ" kind="presentation" identifier="signin" id="g6D-wq-W4m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENb-Nr-zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,8 +240,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedSignIn:" destination="vGb-in-h0a" eventType="touchUpInside" id="yXS-cX-3Qg"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showstopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="TQ6-Nx-MiE"/>
@@ -215,6 +295,9 @@
                                 <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissView:" destination="vGb-in-h0a" eventType="touchUpInside" id="gpI-kw-uDP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,6 +321,12 @@
                             <outletCollection property="gestureRecognizers" destination="ECe-84-KnI" appends="YES" id="FoA-rm-f3B"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="qXa-Qo-fzi" id="gI3-vT-rZ2"/>
+                        <outlet property="passwordField" destination="axl-7G-BAe" id="kPb-GT-GNX"/>
+                        <segue destination="ICS-zV-YMf" kind="presentation" identifier="home2" id="QbH-Vc-9lv"/>
+                        <segue destination="MCK-DA-XmQ" kind="presentation" identifier="login" id="quz-F9-xAg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHn-vw-jsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ECe-84-KnI">
@@ -251,5 +340,10 @@
     </scenes>
     <resources>
         <image name="avatar" width="16" height="16"/>
+        <image name="photo-camera" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="quz-F9-xAg"/>
+        <segue reference="QbH-Vc-9lv"/>
+    </inferredMetricsTieBreakers>
 </document>
