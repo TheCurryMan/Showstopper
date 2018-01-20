@@ -76,7 +76,8 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("tapped")
+        images.remove(at: indexPath.row)
+        collectionView.reloadData()
     }
     /*
     // MARK: - Navigation
