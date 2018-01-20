@@ -16,6 +16,8 @@
 		E1739D492013392B006F4260 /* ShowstopperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D482013392B006F4260 /* ShowstopperTests.swift */; };
 		E1739D542013392B006F4260 /* ShowstopperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D532013392B006F4260 /* ShowstopperUITests.swift */; };
 		E1739D6220133B03006F4260 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1739D6120133B03006F4260 /* GoogleService-Info.plist */; };
+		E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D6320133BAA006F4260 /* SignUpViewController.swift */; };
+		E1739D6620133BB2006F4260 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D6520133BB2006F4260 /* LoginViewController.swift */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		E1739D532013392B006F4260 /* ShowstopperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowstopperUITests.swift; sourceTree = "<group>"; };
 		E1739D552013392B006F4260 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1739D6120133B03006F4260 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1739D6320133BAA006F4260 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E1739D6520133BB2006F4260 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				E1739D332013392B006F4260 /* AppDelegate.swift */,
+				E1739D6320133BAA006F4260 /* SignUpViewController.swift */,
+				E1739D6520133BB2006F4260 /* LoginViewController.swift */,
 				E1739D352013392B006F4260 /* ViewController.swift */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
 				E1739D3A2013392B006F4260 /* Assets.xcassets */,
@@ -396,6 +402,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Showstopper/Pods-Showstopper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -403,6 +410,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -468,6 +476,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1739D6620133BB2006F4260 /* LoginViewController.swift in Sources */,
+				E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */,
 				E1739D362013392B006F4260 /* ViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
 			);
