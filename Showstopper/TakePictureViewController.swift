@@ -18,7 +18,7 @@ class TakePictureCollectionViewCell: UICollectionViewCell {
 
 class TakePictureViewController: UIViewController, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate {
 
-    var images = [UIImage(named: "photo-camera")]
+    var images = [UIImage]()
     var imagePicker = UIImagePickerController()
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -68,6 +68,9 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
         cell.backgroundColor = UIColor.blue
         //let imageV = UIImageView(image: images[indexPath.row])
         cell.clothImageView.image = images[indexPath.row]
+        cell.clothImageView.layer.borderColor = UIColor.white.cgColor
+        cell.clothImageView.layer.borderWidth = 3.0
+        //cell.clothImageView.layer.cornerRadius = 5.0
         //cell.testLabel.text = "asd"
         return cell
     }
