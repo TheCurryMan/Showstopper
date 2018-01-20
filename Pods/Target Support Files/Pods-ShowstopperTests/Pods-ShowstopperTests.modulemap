@@ -1,0 +1,6 @@
+framework module Pods_ShowstopperTests {
+  umbrella header "Pods-ShowstopperTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
