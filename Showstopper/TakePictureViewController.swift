@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 class TakePictureCollectionViewCell: UICollectionViewCell {
     
@@ -20,6 +21,7 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
 
     var images = [UIImage]()
     var imagePicker = UIImagePickerController()
+    let storageRef = Storage.storage().reference()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -50,10 +52,26 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            images.append(pickedImage)
+            images.append(pickedImage.resizeImage(500.0, opaque: true))
             collectionView.reloadData()
             imagePicker.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func finishPhotos(_ sender: Any) {
+        let photoRef = storageRef.child("\(User.currentUser.UID!)")
+        for img in images {
+            let timestamp = NSDate().timeIntervalSince1970
+            let photoIDRef = photoRef.child("\(timestamp).png")
+            let imageData = UIImagePNGRepresentation(img)
+            
+            let uploadTask = photoIDRef.putData(imageData!, metadata: nil) { metadata, error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+        performSegue(withIdentifier: "createOutfit", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,4 +107,46 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
     }
     */
 
+}
+
+extension UIImage {
+    func resizeImage(_ dimension: CGFloat, opaque: Bool, contentMode: UIViewContentMode = .scaleAspectFit) -> UIImage {
+        var width: CGFloat
+        var height: CGFloat
+        var newImage: UIImage
+        
+        let size = self.size
+        let aspectRatio =  size.width/size.height
+        
+        switch contentMode {
+        case .scaleAspectFit:
+            if aspectRatio > 1 {                            // Landscape image
+                width = dimension
+                height = dimension / aspectRatio
+            } else {                                        // Portrait image
+                height = dimension
+                width = dimension * aspectRatio
+            }
+            
+        default:
+            fatalError("UIIMage.resizeToFit(): FATAL: Unimplemented ContentMode")
+        }
+        
+        if #available(iOS 10.0, *) {
+            let renderFormat = UIGraphicsImageRendererFormat.default()
+            renderFormat.opaque = opaque
+            let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height), format: renderFormat)
+            newImage = renderer.image {
+                (context) in
+                self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), opaque, 0)
+            self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+            newImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+        }
+        
+        return newImage
+    }
 }

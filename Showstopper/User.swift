@@ -35,7 +35,7 @@ class User {
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String
-            self.location = (value?["lat"] as! Float, value?["long"] as! Float)
+            //self.location = (value?["lat"] as! Float, value?["long"] as! Float)
             //self.closet = value?["closet"]
             
             
@@ -49,21 +49,29 @@ class User {
         ref.child("users").child(UID!).child("outfits").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            let dates = value?.allKeys as? [String]
             
-            let date = Date()
-            let calendar = Calendar.current
-            let year = calendar.component(.year, from: date)
-            let month = calendar.component(.month, from: date)
-            let day = calendar.component(.day, from: date)
+            if value == nil {
+                outfitBool = false
+            } else {
             
-            let dateStr = "\(year)-\(month)-\(day)"
-            for i in dates! {
-                if i == dateStr {
-                    outfitBool = true
+                let dates = value?.allKeys as? [String]
+                
+                let date = Date()
+                let calendar = Calendar.current
+                let year = calendar.component(.year, from: date)
+                let month = calendar.component(.month, from: date)
+                let day = calendar.component(.day, from: date)
+                
+                let dateStr = "\(year)-\(month)-\(day)"
+                if dates!.count > 0 {
+                    for i in dates! {
+                        if i == dateStr {
+                            outfitBool = true
+                        }
+                    }
                 }
+                outfitBool = false
             }
-            outfitBool = false
             
         }) { (error) in
             print(error.localizedDescription)

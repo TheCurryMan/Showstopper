@@ -64,7 +64,12 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func tappedScreen(_ sender: Any) {
+        print("tapped")
+        self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
+        self.firstNameField.resignFirstResponder()
+    }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         

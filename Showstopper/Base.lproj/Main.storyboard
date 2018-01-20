@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Home View Controller-->
+        <!--Custom Outfit View Controller-->
         <scene sceneID="h6h-0P-3Ds">
             <objects>
-                <viewController id="ICS-zV-YMf" customClass="HomeViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ICS-zV-YMf" customClass="CustomOutfitViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fLB-Zp-dkj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,13 +77,29 @@
                                     <outlet property="delegate" destination="MCK-DA-XmQ" id="oNg-5e-bry"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfs-mD-2Rh">
+                                <rect key="frame" x="288" y="591" width="71" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="hYF-Vq-ALB"/>
+                                    <constraint firstAttribute="width" constant="71" id="k3J-9Z-Zip"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishPhotos:" destination="MCK-DA-XmQ" eventType="touchUpInside" id="ZSU-VS-xfL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dZB-3O-ujv" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="1xj-NG-U9N"/>
                             <constraint firstItem="CD4-2O-byR" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="bRX-nU-t3O"/>
+                            <constraint firstItem="jye-hf-lTZ" firstAttribute="bottom" secondItem="vfs-mD-2Rh" secondAttribute="bottom" constant="20" id="dHZ-Lf-q3W"/>
                             <constraint firstItem="jye-hf-lTZ" firstAttribute="bottom" secondItem="CD4-2O-byR" secondAttribute="bottom" constant="20" id="dKq-P5-gPE"/>
                             <constraint firstItem="dZB-3O-ujv" firstAttribute="top" secondItem="d6Q-RB-Vjv" secondAttribute="bottom" constant="33" id="pZV-4v-4PE"/>
+                            <constraint firstItem="jye-hf-lTZ" firstAttribute="trailing" secondItem="vfs-mD-2Rh" secondAttribute="trailing" constant="16" id="r2b-CS-Rdc"/>
                             <constraint firstItem="d6Q-RB-Vjv" firstAttribute="centerX" secondItem="jye-hf-lTZ" secondAttribute="centerX" id="v8t-8B-Hoe"/>
                             <constraint firstItem="d6Q-RB-Vjv" firstAttribute="top" secondItem="jye-hf-lTZ" secondAttribute="top" constant="29" id="yi7-CY-4Vk"/>
                         </constraints>
@@ -90,11 +107,27 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="dZB-3O-ujv" id="z5m-LF-hFy"/>
+                        <segue destination="ICS-zV-YMf" kind="presentation" identifier="createOutfit" id="pbO-Wu-3IB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3p-Iw-Gia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="661.60000000000002" y="22.938530734632685"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="cLY-8D-J4d">
+            <objects>
+                <viewController id="fay-lf-X2F" customClass="HomeViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m8q-zq-k0G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Iqw-qq-d8N"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbc-8b-nPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1450" y="23"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="snI-Gw-WUD">
@@ -189,6 +222,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.2274509817" green="0.60392159219999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="nYd-W4-IoM" firstAttribute="top" secondItem="c6l-gd-CIM" secondAttribute="bottom" constant="8" id="5jh-Qb-kPV"/>
                             <constraint firstItem="nYd-W4-IoM" firstAttribute="centerX" secondItem="7qX-3S-srF" secondAttribute="centerX" id="8i4-BG-Q1R"/>
@@ -207,6 +241,9 @@
                             <constraint firstItem="iG5-jb-gCE" firstAttribute="top" secondItem="CuF-Wc-VpF" secondAttribute="bottom" constant="5" id="qPM-ga-OHt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7qX-3S-srF"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NM9-BJ-krF" appends="YES" id="I4H-gz-nw3"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="c6l-gd-CIM" id="HD3-ax-Fps"/>
@@ -217,6 +254,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENb-Nr-zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NM9-BJ-krF">
+                    <connections>
+                        <action selector="tappedScreen:" destination="gYG-x5-xJa" id="SES-9A-yyN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-844" y="23"/>
         </scene>
@@ -344,6 +386,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="quz-F9-xAg"/>
-        <segue reference="QbH-Vc-9lv"/>
+        <segue reference="pbO-Wu-3IB"/>
     </inferredMetricsTieBreakers>
 </document>

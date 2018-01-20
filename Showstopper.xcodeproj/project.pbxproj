@@ -23,6 +23,7 @@
 		E1F7EFA820136702000C2D65 /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA720136702000C2D65 /* Outfit.swift */; };
 		E1F7EFAA20136907000C2D65 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA920136907000C2D65 /* Closet.swift */; };
 		E1F7EFAC2013B375000C2D65 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */; };
+		E1F7EFAE2013B582000C2D65 /* CustomOutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,7 @@
 		E1F7EFA720136702000C2D65 /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
 		E1F7EFA920136907000C2D65 /* Closet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOutfitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				E1739D6320133BAA006F4260 /* SignUpViewController.swift */,
 				E1739D6520133BB2006F4260 /* LoginViewController.swift */,
 				E1739D672013423E006F4260 /* TakePictureViewController.swift */,
+				E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */,
 				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
 				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
@@ -499,6 +502,7 @@
 				E1F7EFA42013659B000C2D65 /* User.swift in Sources */,
 				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
+				E1F7EFAE2013B582000C2D65 /* CustomOutfitViewController.swift in Sources */,
 				E1F7EFA820136702000C2D65 /* Outfit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
