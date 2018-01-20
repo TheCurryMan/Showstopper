@@ -36,7 +36,7 @@ class User {
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String
             self.location = (value?["lat"] as! Float, value?["long"] as! Float)
-            self.closet = value?["closet"]
+            //self.closet = value?["closet"]
             
             
         }) { (error) in
@@ -44,11 +44,12 @@ class User {
         }
     }
     
-    func checkCurrentOutfit() -> Bool {
+    func checkCurrentOutfit() -> Bool{
+        var outfitBool = false
         ref.child("users").child(UID!).child("outfits").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            let dates = value?.allKeys
+            let dates = value?.allKeys as? [String]
             
             let date = Date()
             let calendar = Calendar.current
@@ -56,17 +57,18 @@ class User {
             let month = calendar.component(.month, from: date)
             let day = calendar.component(.day, from: date)
             
-            dateStr = "\(year)-\(month)-\(day)"
-            if dateStr in dates {
-                return true
-            } else {
-                return false
+            let dateStr = "\(year)-\(month)-\(day)"
+            for i in dates! {
+                if i == dateStr {
+                    outfitBool = true
+                }
             }
-            
-        
+            outfitBool = false
             
         }) { (error) in
             print(error.localizedDescription)
         }
+        return outfitBool
+    }
     
 }

@@ -47,7 +47,10 @@ class LogInViewController: UIViewController {
             if user != nil {
                 print("sign in successful")
                 User.currentUser.setUpUser()
-                
+                var hasCurrentOutfit = User.currentUser.checkCurrentOutfit()
+                if hasCurrentOutfit {
+                    self.performSegue(withIdentifier: "home2", sender: nil)
+                }
                 self.performSegue(withIdentifier: "login", sender: nil)
             }
             else{

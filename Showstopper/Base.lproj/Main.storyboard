@@ -17,20 +17,20 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Welcome View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home View Controller-->
+        <scene sceneID="h6h-0P-3Ds">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="ICS-zV-YMf" customClass="HomeViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fLB-Zp-dkj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="klJ-On-kzj"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jdx-bp-n5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="23"/>
+            <point key="canvasLocation" x="662" y="701"/>
         </scene>
         <!--Take Picture View Controller-->
         <scene sceneID="BCl-sx-W1W">
@@ -212,7 +212,8 @@
                         <outlet property="emailField" destination="c6l-gd-CIM" id="HD3-ax-Fps"/>
                         <outlet property="firstNameField" destination="Q0V-5H-rn8" id="oQb-7A-ezQ"/>
                         <outlet property="passwordField" destination="nYd-W4-IoM" id="83K-4j-vg4"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signin" id="E1m-IA-4WZ"/>
+                        <segue destination="ICS-zV-YMf" kind="presentation" identifier="home1" id="rJE-Qb-f8W"/>
+                        <segue destination="MCK-DA-XmQ" kind="presentation" identifier="signin" id="g6D-wq-W4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENb-Nr-zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,7 +324,8 @@
                     <connections>
                         <outlet property="emailField" destination="qXa-Qo-fzi" id="gI3-vT-rZ2"/>
                         <outlet property="passwordField" destination="axl-7G-BAe" id="kPb-GT-GNX"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="login" id="oqZ-0j-wkd"/>
+                        <segue destination="ICS-zV-YMf" kind="presentation" identifier="home2" id="QbH-Vc-9lv"/>
+                        <segue destination="MCK-DA-XmQ" kind="presentation" identifier="login" id="quz-F9-xAg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHn-vw-jsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -341,6 +343,7 @@
         <image name="photo-camera" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oqZ-0j-wkd"/>
+        <segue reference="quz-F9-xAg"/>
+        <segue reference="QbH-Vc-9lv"/>
     </inferredMetricsTieBreakers>
 </document>

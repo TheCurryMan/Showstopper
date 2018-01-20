@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8A475E8234B77123A89E12E3 /* Pods_ShowstopperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749335333CB72D0525654498 /* Pods_ShowstopperUITests.framework */; };
 		E1739D342013392B006F4260 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D332013392B006F4260 /* AppDelegate.swift */; };
-		E1739D362013392B006F4260 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D352013392B006F4260 /* WelcomeViewController.swift */; };
 		E1739D392013392B006F4260 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1739D372013392B006F4260 /* Main.storyboard */; };
 		E1739D3B2013392B006F4260 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1739D3A2013392B006F4260 /* Assets.xcassets */; };
 		E1739D3E2013392B006F4260 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1739D3C2013392B006F4260 /* LaunchScreen.storyboard */; };
@@ -23,6 +22,7 @@
 		E1F7EFA42013659B000C2D65 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA32013659B000C2D65 /* User.swift */; };
 		E1F7EFA820136702000C2D65 /* Outfit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA720136702000C2D65 /* Outfit.swift */; };
 		E1F7EFAA20136907000C2D65 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA920136907000C2D65 /* Closet.swift */; };
+		E1F7EFAC2013B375000C2D65 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,6 @@
 		B94355B29D067EAE6166C15C /* Pods-ShowstopperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShowstopperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShowstopperTests/Pods-ShowstopperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1739D302013392B006F4260 /* Showstopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Showstopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1739D332013392B006F4260 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E1739D352013392B006F4260 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E1739D382013392B006F4260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1739D3A2013392B006F4260 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1739D3D2013392B006F4260 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		E1F7EFA32013659B000C2D65 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1F7EFA720136702000C2D65 /* Outfit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Outfit.swift; sourceTree = "<group>"; };
 		E1F7EFA920136907000C2D65 /* Closet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
+		E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +159,8 @@
 				E1F7EFA920136907000C2D65 /* Closet.swift */,
 				E1739D6320133BAA006F4260 /* SignUpViewController.swift */,
 				E1739D6520133BB2006F4260 /* LoginViewController.swift */,
-				E1739D352013392B006F4260 /* WelcomeViewController.swift */,
 				E1739D672013423E006F4260 /* TakePictureViewController.swift */,
+				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
 				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
 				E1739D3A2013392B006F4260 /* Assets.xcassets */,
@@ -495,9 +495,9 @@
 				E1739D6620133BB2006F4260 /* LoginViewController.swift in Sources */,
 				E1F7EFAA20136907000C2D65 /* Closet.swift in Sources */,
 				E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */,
+				E1F7EFAC2013B375000C2D65 /* HomeViewController.swift in Sources */,
 				E1F7EFA42013659B000C2D65 /* User.swift in Sources */,
 				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
-				E1739D362013392B006F4260 /* WelcomeViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
 				E1F7EFA820136702000C2D65 /* Outfit.swift in Sources */,
 			);
