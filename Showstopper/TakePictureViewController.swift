@@ -52,7 +52,7 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            images.append(pickedImage.resizeImage(500.0, opaque: true))
+            images.append(pickedImage.resizeImage(300.0, opaque: true))
             collectionView.reloadData()
             imagePicker.dismiss(animated: true, completion: nil)
         }
@@ -62,8 +62,8 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
         let photoRef = storageRef.child("\(User.currentUser.UID!)")
         for img in images {
             let timestamp = NSDate().timeIntervalSince1970
-            let photoIDRef = photoRef.child("\(timestamp).png")
-            let imageData = UIImagePNGRepresentation(img)
+            let photoIDRef = photoRef.child("\(timestamp).jpeg")
+            let imageData = UIImageJPEGRepresentation(img, 0.5)
             
             let uploadTask = photoIDRef.putData(imageData!, metadata: nil) { metadata, error in
                 if let error = error {
