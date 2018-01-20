@@ -24,6 +24,7 @@
 		E1F7EFAA20136907000C2D65 /* Closet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFA920136907000C2D65 /* Closet.swift */; };
 		E1F7EFAC2013B375000C2D65 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */; };
 		E1F7EFAE2013B582000C2D65 /* CustomOutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */; };
+		E1F7EFB02013C754000C2D65 /* OutfitClothingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		E1F7EFA920136907000C2D65 /* Closet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closet.swift; sourceTree = "<group>"; };
 		E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOutfitViewController.swift; sourceTree = "<group>"; };
+		E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutfitClothingCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */,
 				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
 				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
+				E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
 				E1739D3A2013392B006F4260 /* Assets.xcassets */,
 				E1739D3C2013392B006F4260 /* LaunchScreen.storyboard */,
@@ -313,6 +316,7 @@
 				E1739D6220133B03006F4260 /* GoogleService-Info.plist in Resources */,
 				E1739D3B2013392B006F4260 /* Assets.xcassets in Resources */,
 				E1739D392013392B006F4260 /* Main.storyboard in Resources */,
+				E1F7EFB02013C754000C2D65 /* OutfitClothingCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

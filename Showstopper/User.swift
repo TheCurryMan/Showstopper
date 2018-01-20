@@ -14,7 +14,7 @@ class User {
     var name : String?
     var UID : String?
     var location: (Float, Float)?
-    var closet: [String:String]?
+    var closet = Closet()
     var hasCurrentOutfit: Bool?
     var currentOutfit: Outfit?
     
@@ -44,6 +44,18 @@ class User {
         }
     }
     
+    func getClosetData() {
+        ref.child("users").child(UID!).child("closet").observe(.value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            self.closet.setIds(top: value?["top"] as! [String], bot: value?["bot"] as! [String], shoe: value?["sho"] as! [String])
+      
+            
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
     func checkCurrentOutfit() -> Bool{
         var outfitBool = false
         ref.child("users").child(UID!).child("outfits").observeSingleEvent(of: .value, with: { (snapshot) in

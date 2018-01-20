@@ -10,17 +10,22 @@ import Foundation
 import Firebase
 
 class Closet {
-    var upIds : [String]?
-    var lowIds : [String]?
+    var topIds : [String]?
+    var botIds : [String]?
     var shoeIds : [String]?
     
-    var upData : [String:String]?
-    var lowData : [String:String]?
-    var showData : [String:String]?
+    var topData : [String:String]?
+    var botData : [String:String]?
+    var shoeData : [String:String]?
     
-    private init() {
+    public init() {
     }
     
+    func setIds(top: [String], bot:[String], shoe:[String]) {
+        self.topIds = top
+        self.botIds = bot
+        self.shoeIds = shoe
+    }
 
     func getCurrentOutfitImages() {
         
