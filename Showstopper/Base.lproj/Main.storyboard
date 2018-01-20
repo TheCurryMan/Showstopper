@@ -18,20 +18,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="snI-Gw-WUD">
             <objects>
@@ -50,6 +36,9 @@
                                 <state key="normal" title="Have an account? Log In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vGb-in-h0a" kind="show" id="Cc5-eZ-A6g"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-5H-rn8">
                                 <rect key="frame" x="37" y="353" width="300" height="40"/>
@@ -75,8 +64,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpUser:" destination="gYG-x5-xJa" eventType="touchUpInside" id="DDr-K0-H6U"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShowStopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="RlW-f0-474"/>
@@ -138,14 +130,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7qX-3S-srF"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="c6l-gd-CIM" id="3z3-Bv-esY"/>
+                        <outlet property="firstNameField" destination="Q0V-5H-rn8" id="dfZ-8V-1cG"/>
+                        <outlet property="passwordField" destination="nYd-W4-IoM" id="jqq-E7-gzn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENb-Nr-zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="23"/>
+            <point key="canvasLocation" x="-1468" y="929"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="wFL-qn-pJm">
             <objects>
+                <tapGestureRecognizer id="ECe-84-KnI">
+                    <connections>
+                        <action selector="tappedScreen:" destination="vGb-in-h0a" id="1RG-5J-ufF"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FHn-vw-jsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="vGb-in-h0a" customClass="LogInViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="geO-Jb-HpZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -163,8 +166,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedSignIn:" destination="vGb-in-h0a" eventType="touchUpInside" id="2l9-VN-6uV"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShowStopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="TQ6-Nx-MiE"/>
@@ -215,6 +221,9 @@
                                 <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissView:" destination="vGb-in-h0a" eventType="touchUpInside" id="ynr-8K-lih"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,15 +247,13 @@
                             <outletCollection property="gestureRecognizers" destination="ECe-84-KnI" appends="YES" id="FoA-rm-f3B"/>
                         </connections>
                     </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FHn-vw-jsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ECe-84-KnI">
                     <connections>
-                        <action selector="tappedScreen:" destination="vGb-in-h0a" id="1RG-5J-ufF"/>
+                        <outlet property="emailField" destination="qXa-Qo-fzi" id="mFY-9a-AF7"/>
+                        <outlet property="passwordField" destination="axl-7G-BAe" id="CCd-M6-Kht"/>
                     </connections>
-                </tapGestureRecognizer>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="-820" y="944"/>
+            <point key="canvasLocation" x="-673" y="929"/>
         </scene>
     </scenes>
     <resources>
