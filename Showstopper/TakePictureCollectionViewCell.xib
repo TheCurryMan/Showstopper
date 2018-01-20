@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,29 +11,35 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hb2-6K-c0S" customClass="TakePictureCollectionViewCell" customModule="Showstopper" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="takephoto" id="hb2-6K-c0S" customClass="TakePictureCollectionViewCell" customModule="Showstopper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-Y5-qIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="ttA-Y5-qIZ">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="X3H-oG-BxV"/>
+                            <constraint firstAttribute="width" constant="60" id="Zpq-TR-et1"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ttA-Y5-qIZ" firstAttribute="leading" secondItem="hb2-6K-c0S" secondAttribute="leading" id="Bmx-fQ-S0e"/>
-                <constraint firstAttribute="bottom" secondItem="ttA-Y5-qIZ" secondAttribute="bottom" id="MbU-hb-Ia5"/>
-                <constraint firstItem="ttA-Y5-qIZ" firstAttribute="top" secondItem="hb2-6K-c0S" secondAttribute="top" id="cTa-sH-YZE"/>
-                <constraint firstAttribute="trailing" secondItem="ttA-Y5-qIZ" secondAttribute="trailing" id="jU9-WR-u1J"/>
+                <constraint firstItem="ttA-Y5-qIZ" firstAttribute="centerY" secondItem="5k7-uU-aLt" secondAttribute="centerY" id="G0J-jO-KQi"/>
+                <constraint firstItem="ttA-Y5-qIZ" firstAttribute="centerX" secondItem="5k7-uU-aLt" secondAttribute="centerX" id="Vll-5w-63P"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="5k7-uU-aLt"/>
             <connections>
-                <outlet property="clothImageView" destination="ttA-Y5-qIZ" id="PBS-0J-2Li"/>
+                <outlet property="clothImageView" destination="ttA-Y5-qIZ" id="Whp-gj-03p"/>
             </connections>
             <point key="canvasLocation" x="46" y="2"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="photo-camera" width="256" height="256"/>
+    </resources>
 </document>
