@@ -50,10 +50,10 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpUser(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error == nil {
-                //User.currentUser.setUID()
+                User.currentUser.setUID()
                 let ref : DatabaseReference! = Database.database().reference()
                 ref.child("users").child(user!.uid).updateChildValues(["name": self.firstNameField.text!])
-                self.performSegue(withIdentifier: "signup", sender: self)
+                self.performSegue(withIdentifier: "signin", sender: self)
             }
         }
     }

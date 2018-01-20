@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MCK-DA-XmQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gYG-x5-xJa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,10 +17,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="23"/>
+            <point key="canvasLocation" x="-71" y="23"/>
         </scene>
         <!--Take Picture View Controller-->
         <scene sceneID="BCl-sx-W1W">
@@ -114,6 +114,9 @@
                                 <state key="normal" title="Have an account? Log In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vGb-in-h0a" kind="presentation" id="HEZ-dO-wbd"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q0V-5H-rn8">
                                 <rect key="frame" x="37" y="353" width="300" height="40"/>
@@ -139,8 +142,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpUser:" destination="gYG-x5-xJa" eventType="touchUpInside" id="Bm1-7f-emt"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showstopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IJ-Ro-e22">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="RlW-f0-474"/>
@@ -202,6 +208,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7qX-3S-srF"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="c6l-gd-CIM" id="HD3-ax-Fps"/>
+                        <outlet property="firstNameField" destination="Q0V-5H-rn8" id="oQb-7A-ezQ"/>
+                        <outlet property="passwordField" destination="nYd-W4-IoM" id="83K-4j-vg4"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="signin" id="E1m-IA-4WZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENb-Nr-zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,8 +239,11 @@
                                     <color key="titleColor" red="0.28344750400000002" green="0.69443136449999998" blue="0.95240861180000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressedSignIn:" destination="vGb-in-h0a" eventType="touchUpInside" id="yXS-cX-3Qg"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showstopper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esg-nx-Pnu">
                                 <rect key="frame" x="0.0" y="199" width="375" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="99" id="TQ6-Nx-MiE"/>
@@ -279,6 +294,9 @@
                                 <state key="normal" title="Don't have an account? Sign Up">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismissView:" destination="vGb-in-h0a" eventType="touchUpInside" id="gpI-kw-uDP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42101126909999997" green="0.74160355330000005" blue="0.99996477370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,6 +320,11 @@
                             <outletCollection property="gestureRecognizers" destination="ECe-84-KnI" appends="YES" id="FoA-rm-f3B"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="qXa-Qo-fzi" id="gI3-vT-rZ2"/>
+                        <outlet property="passwordField" destination="axl-7G-BAe" id="kPb-GT-GNX"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="login" id="oqZ-0j-wkd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHn-vw-jsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ECe-84-KnI">
@@ -317,4 +340,7 @@
         <image name="avatar" width="16" height="16"/>
         <image name="photo-camera" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oqZ-0j-wkd"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Avinash Jain. All rights reserved.
 //
 
+
 import UIKit
 import ChameleonFramework
 import Firebase
@@ -45,7 +46,7 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
             if user != nil {
                 print("sign in successful")
-                //User.currentUser.setUpUser()
+                User.currentUser.setUpUser()
                 
                 self.performSegue(withIdentifier: "login", sender: nil)
             }
