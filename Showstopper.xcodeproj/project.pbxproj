@@ -18,6 +18,8 @@
 		E1739D6220133B03006F4260 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1739D6120133B03006F4260 /* GoogleService-Info.plist */; };
 		E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D6320133BAA006F4260 /* SignUpViewController.swift */; };
 		E1739D6620133BB2006F4260 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D6520133BB2006F4260 /* LoginViewController.swift */; };
+		E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1739D672013423E006F4260 /* TakePictureViewController.swift */; };
+		E1739D6A20134643006F4260 /* TakePictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		E1739D6120133B03006F4260 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1739D6320133BAA006F4260 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E1739D6520133BB2006F4260 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E1739D672013423E006F4260 /* TakePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePictureViewController.swift; sourceTree = "<group>"; };
+		E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakePictureCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 				E1739D6320133BAA006F4260 /* SignUpViewController.swift */,
 				E1739D6520133BB2006F4260 /* LoginViewController.swift */,
 				E1739D352013392B006F4260 /* ViewController.swift */,
+				E1739D672013423E006F4260 /* TakePictureViewController.swift */,
+				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
 				E1739D3A2013392B006F4260 /* Assets.xcassets */,
 				E1739D3C2013392B006F4260 /* LaunchScreen.storyboard */,
@@ -291,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1739D3E2013392B006F4260 /* LaunchScreen.storyboard in Resources */,
+				E1739D6A20134643006F4260 /* TakePictureCollectionViewCell.xib in Resources */,
 				E1739D6220133B03006F4260 /* GoogleService-Info.plist in Resources */,
 				E1739D3B2013392B006F4260 /* Assets.xcassets in Resources */,
 				E1739D392013392B006F4260 /* Main.storyboard in Resources */,
@@ -478,6 +485,7 @@
 			files = (
 				E1739D6620133BB2006F4260 /* LoginViewController.swift in Sources */,
 				E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */,
+				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
 				E1739D362013392B006F4260 /* ViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
 			);
