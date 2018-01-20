@@ -49,7 +49,7 @@ class User {
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.closet.setIds(top: value?["top"] as! [String], bot: value?["bot"] as! [String], shoe: value?["sho"] as! [String])
-      
+            
             
             
         }) { (error) in

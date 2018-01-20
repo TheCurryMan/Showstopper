@@ -62,7 +62,8 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
         let photoRef = storageRef.child("\(User.currentUser.UID!)")
         for img in images {
             let timestamp = NSDate().timeIntervalSince1970
-            let photoIDRef = photoRef.child("\(timestamp).jpeg")
+            let timestampStr = "\(timestamp)".replacingOccurrences(of: ".", with: "")
+            let photoIDRef = photoRef.child("\(timestampStr).jpeg")
             let imageData = UIImageJPEGRepresentation(img, 0.5)
             
             let uploadTask = photoIDRef.putData(imageData!, metadata: nil) { metadata, error in
