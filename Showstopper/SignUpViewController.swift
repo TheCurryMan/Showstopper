@@ -35,13 +35,14 @@ class SignUpViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        updateData()
         
         if Auth.auth().currentUser != nil {
             
             User.currentUser.setUpUser(completion: {(b) in
+                
                 User.currentUser.checkCurrentOutfit(completion: {(hasCurrentOutfit) in
-                    print(hasCurrentOutfit)
+                    print("YUH YUH YUH")
+                 
                     if hasCurrentOutfit {
                         self.performSegue(withIdentifier: "signuptoloading", sender: nil)
                     } else {
@@ -92,21 +93,6 @@ class SignUpViewController: UIViewController {
                 self.view.frame.origin.y += keyboardSize.height
             }
         }
-    }
-    
-    func updateData() {
-        let ref: DatabaseReference = Database.database().reference()
-        var cu = User.currentUser
-        Locator.subscribePosition(accuracy: .house, onUpdate: { loc in
-            let lat = loc.coordinate.longitude
-            let long = loc.coordinate.latitude
-            let data = ["lat": lat,
-                        "long": long]
-            ref.child("users").child("\(cu.UID!)").updateChildValues(data)
-        }, onFail: { err, last in
-            print("Failed with error: \(err)")
-        })
-        
     }
     
     /*

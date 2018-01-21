@@ -10,7 +10,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Showstopper/LoadingMapViewController.swift"
-            timestampString = "538224357.5818419"
+            timestampString = "538249029.830112"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "addHalo()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Showstopper/LoadingMapViewController.swift"
+            timestampString = "538249029.8306299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -25,14 +41,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Showstopper/LoadingMapViewController.swift"
-            timestampString = "538224357.5854321"
+            filePath = "Showstopper/User.swift"
+            timestampString = "538249029.830791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "LoadingMapViewController"
-            landmarkType = "3">
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "checkCurrentOutfit(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Showstopper.User.checkCurrentOutfit(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Showstopper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Avinash/Documents/Code/Showstopper/Showstopper/User.swift"
+                  timestampString = "538236009.912281"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1492">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Showstopper.Clothing) -&gt; () in closure #1 (__ObjC.DataSnapshot) -&gt; () in Showstopper.User.checkCurrentOutfit(completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "Showstopper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Avinash/Documents/Code/Showstopper/Showstopper/User.swift"
+                  timestampString = "538236009.914187"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

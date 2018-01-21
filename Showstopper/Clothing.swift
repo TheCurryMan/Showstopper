@@ -33,6 +33,7 @@ class Clothing {
     }
     
     func addImage() {
+        print("DOWNLOADING IMAGE")
         let imageURL = "\(User.currentUser.UID!)" + "/" + self.id! + ".jpeg"
         let imageRef = storageRef.child(imageURL)
         imageRef.downloadURL { url, error in
@@ -40,8 +41,6 @@ class Clothing {
                 print("WE HAVE AN ERROR")
                 // Handle any errors
             } else {
-                // Get the download URL for 'images/stars.jpg'
-                print(url)
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data as Data)
                 self.img = image!

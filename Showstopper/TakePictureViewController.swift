@@ -9,6 +9,7 @@
 import UIKit
 import ChameleonFramework
 import Firebase
+import Alamofire
 
 class TakePictureCollectionViewCell: UICollectionViewCell {
     
@@ -69,9 +70,14 @@ class TakePictureViewController: UIViewController, UICollectionViewDataSource, U
             let uploadTask = photoIDRef.putData(imageData!, metadata: nil) { metadata, error in
                 if let error = error {
                     print(error)
+                } else {
+                    //var params = ["user_id": User.currentUser.UID!, "pic_id": timestampStr] as! Parameters
+                
+                     Alamofire.request("http://mysterious-shelf-30539.herokuapp.com/store?user_id="+User.currentUser.UID!+"&pic_id="+timestampStr, headers: nil).responseJSON { (response) in
+                    }}
                 }
             }
-        }
+        
         performSegue(withIdentifier: "createOutfit", sender: self)
     }
     

@@ -53,6 +53,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="V6J-Hr-xVY"/>
             <size key="customSize" width="142" height="333"/>
+            <connections>
+                <outlet property="botImageView" destination="Ema-9h-dgk" id="WRO-a9-wOs"/>
+                <outlet property="shoeImageView" destination="rql-Me-ETi" id="BkG-XS-Pc1"/>
+                <outlet property="topImageView" destination="j6B-y9-uAw" id="WZa-mg-9fM"/>
+            </connections>
             <point key="canvasLocation" x="63" y="190"/>
         </collectionViewCell>
     </objects>

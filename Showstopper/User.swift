@@ -34,7 +34,7 @@ class User {
         UID = Auth.auth().currentUser?.uid
         
         ref = Database.database().reference()
-        ref.child("users").child(UID!).observe(.value, with: { (snapshot) in
+        ref.child("users").child(UID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String
@@ -73,25 +73,19 @@ class User {
         let day = calendar.component(.day, from: date)
         let dateStr = "\(year)-\(month)-\(day)"
         
-        ref.child("users").child(UID!).child("outfits").observe(.value, with: { (snapshot) in
+        ref.child("users").child(UID!).child("outfits").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             if let outfit = value?["\(dateStr)"] as? [String: String]{
-                
+                print("Triple threat")
                 User.currentUser.getClothingData(i: outfit["topID"]!, completion:{(top) in
-                    print("HELLO")
                     User.currentUser.getClothingData(i: outfit["botID"]!, completion: {(bot) in
-                        print("Namaste")
                         User.currentUser.getClothingData(i: outfit["shoID"]!, completion: {(shoe) in
-                            print("What's up")
                             User.currentUser.currentOutfit = Outfit(upperBody: top, lowerBody: bot, shoes: shoe)
-                            completion(true)
                         })
-                        
                     })
-                    
                 })
-                
+                completion(true)
                 
             } else {
                 completion(false)
