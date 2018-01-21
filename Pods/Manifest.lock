@@ -1,4 +1,5 @@
 PODS:
+  - APScheduledLocationManager (1.0.1)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -53,14 +54,19 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SwiftLocation (3.1.0):
+    - SwiftyJSON (~> 4.0.0-alpha.1)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - APScheduledLocationManager
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - KDLoadingView
+  - SwiftLocation
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -72,6 +78,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  APScheduledLocationManager: ec688cae8b606c6f7a5234189c3954eb9a6d3ace
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 2721056b8885eef90233b03f37be64358d35d262
   FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
@@ -85,7 +92,9 @@ SPEC CHECKSUMS:
   KDLoadingView: fcb015daf91c245f0a212fd52b8061621f421dfe
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SwiftLocation: 8f5ef4f510a45e43239de57a3145b3669301e898
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: a14c422d541ef0fde17757c7414d663512637c2d
+PODFILE CHECKSUM: da5898405e5a0ad7762db67929266f7a5a2ec86c
 
 COCOAPODS: 1.3.1

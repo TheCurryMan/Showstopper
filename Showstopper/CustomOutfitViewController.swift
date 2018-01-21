@@ -168,7 +168,7 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
         let ref : DatabaseReference! = Database.database().reference()
         ref.child("users").child("\(User.currentUser.UID!)").child("outfits").updateChildValues(["\(dateStr)":User.currentUser.currentOutfit?.returnOutfitData()])
         
-        
+        performSegue(withIdentifier: "outfittohome", sender: self)
         
     }
     

@@ -23,15 +23,24 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [HexColor("#ee0979")!, HexColor("#ff6a00")!])
         
         addClothesButton.layer.cornerRadius = 10.0
         updateOutfitButton.layer.cornerRadius = 10.0
+        
+        topImageView.layer.borderColor = UIColor.white.cgColor
+        topImageView.layer.borderWidth = 2.0
+        botImageView.layer.borderColor = UIColor.white.cgColor
+        botImageView.layer.borderWidth = 2.0
+        shoeImageView.layer.borderColor = UIColor.white.cgColor
+        shoeImageView.layer.borderWidth = 2.0
         // Do any additional setup after loading the view.
         topImageView.image = curUser.currentOutfit?.upperBody?.img
         botImageView.image = curUser.currentOutfit?.lowerBody?.img
         shoeImageView.image = curUser.currentOutfit?.shoes?.img
+        
+        
         
         
     }

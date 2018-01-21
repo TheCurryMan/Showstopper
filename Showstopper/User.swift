@@ -78,8 +78,11 @@ class User {
             if let outfit = value?["\(dateStr)"] as? [String: String]{
                 
                 User.currentUser.getClothingData(i: outfit["topID"]!, completion:{(top) in
+                    print("HELLO")
                     User.currentUser.getClothingData(i: outfit["botID"]!, completion: {(bot) in
+                        print("Namaste")
                         User.currentUser.getClothingData(i: outfit["shoID"]!, completion: {(shoe) in
+                            print("What's up")
                             User.currentUser.currentOutfit = Outfit(upperBody: top, lowerBody: bot, shoes: shoe)
                             completion(true)
                         })

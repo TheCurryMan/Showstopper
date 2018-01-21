@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        Locator.requestAuthorizationIfNeeded(.always)
+        if let _ = launchOptions?[UIApplicationLaunchOptionsKey.location] {
+            Locator.subscribeSignificantLocations(onUpdate: { newLocation in
+                // This block will be executed with the details of the significant location change that triggered the background app launch,
+                // and will continue to execute for any future significant location change events as well (unless canceled).
+                
+                let ref: DatabaseReference = Database.database().reference()
+                var cu = User.currentUser
+                let lat = newLocation.coordinate.longitude
+                let long = newLocation.coordinate.latitude
+                let data = ["lat": lat,
+                            "long": long]
+                ref.child("users").child("\(cu.UID!)").updateChildValues(data)
+            }, onFail: { (err, lastLocation) in
+                // Something bad has occurred
+                print(err)
+            })
+        }
         return true
     }
 

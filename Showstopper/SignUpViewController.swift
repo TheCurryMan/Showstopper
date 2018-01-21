@@ -10,6 +10,7 @@
 import UIKit
 import ChameleonFramework
 import Firebase
+import SwiftLocation
 
 class SignUpViewController: UIViewController {
 
@@ -17,7 +18,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,8 @@ class SignUpViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        updateData()
+        
         if Auth.auth().currentUser != nil {
             
             User.currentUser.setUpUser(completion: {(b) in
@@ -90,6 +92,21 @@ class SignUpViewController: UIViewController {
                 self.view.frame.origin.y += keyboardSize.height
             }
         }
+    }
+    
+    func updateData() {
+        let ref: DatabaseReference = Database.database().reference()
+        var cu = User.currentUser
+        Locator.subscribePosition(accuracy: .house, onUpdate: { loc in
+            let lat = loc.coordinate.longitude
+            let long = loc.coordinate.latitude
+            let data = ["lat": lat,
+                        "long": long]
+            ref.child("users").child("\(cu.UID!)").updateChildValues(data)
+        }, onFail: { err, last in
+            print("Failed with error: \(err)")
+        })
+        
     }
     
     /*
