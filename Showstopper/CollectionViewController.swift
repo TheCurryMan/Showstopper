@@ -8,6 +8,10 @@
 
 import UIKit
 
+class CustomCollectionViewCell: UICollectionViewCell {
+    
+}
+
 class CollectionViewController: UIViewController {
 
     override func viewDidLoad() {

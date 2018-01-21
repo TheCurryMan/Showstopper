@@ -12,6 +12,7 @@ import MapKit
 import CoreLocation
 import ChameleonFramework
 import Alamofire
+import Firebase
 
 class LoadingMapViewController: UIViewController {
     
@@ -131,6 +132,32 @@ class LoadingMapViewController: UIViewController {
                     self.doneButton.layer.cornerRadius = 5.0
                 })
             })
+        }
+    }
+    
+    func addToCollection() {
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dateStr = "\(year)-\(month)-\(day)"
+        
+        for i in self.userIds {
+            var ref :DatabaseReference = Database.database().reference()
+            ref.child("users").child(i).child("outfits").child(dateStr).observe(.value, with: { (snapshot) in
+                // Get user value
+                let value = snapshot.value as? NSDictionary
+                User.currentUser.getClothingData(i: value!["topID"] as! String, completion:{(top) in
+                    User.currentUser.getClothingData(i: value!["botID"] as! String, completion: {(bot) in
+                        User.currentUser.getClothingData(i: value!["shoID"] as! String, completion: {(shoe) in
+                            User.currentUser.collection.append(Outfit(upperBody: top, lowerBody: bot, shoes: shoe))
+                        })
+                    })
+                })
+            }) { (error) in
+                print(error.localizedDescription)
+            }
         }
     }
     

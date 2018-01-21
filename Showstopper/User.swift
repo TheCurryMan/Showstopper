@@ -17,6 +17,7 @@ class User {
     var closet = Closet()
     var hasCurrentOutfit: Bool?
     var currentOutfit: Outfit?
+    var collection = [Outfit]()
     
     
     static var currentUser = User()

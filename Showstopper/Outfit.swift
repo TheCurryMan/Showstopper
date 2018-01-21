@@ -17,4 +17,6 @@ struct Outfit {
         return ["topID":(upperBody?.id!)!, "botID":(lowerBody?.id!)!, "shoID":(shoes?.id!)!]
     }
     
+    
+    
 }
