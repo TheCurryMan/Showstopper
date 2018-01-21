@@ -32,18 +32,20 @@ class Clothing {
         self.tag = tag
     }
     
-    func addImage() {
+    func addImage(completion: @escaping (Bool) -> Void) {
         print("DOWNLOADING IMAGE")
         let imageURL = "\(User.currentUser.UID!)" + "/" + self.id! + ".jpeg"
         let imageRef = storageRef.child(imageURL)
         imageRef.downloadURL { url, error in
             if let error = error {
                 print("WE HAVE AN ERROR")
+                completion(false)
                 // Handle any errors
             } else {
                 let data = try! Data(contentsOf: url!)
                 let image = UIImage(data: data as Data)
                 self.img = image!
+                completion(true)
             }
         }
     }

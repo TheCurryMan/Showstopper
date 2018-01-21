@@ -41,21 +41,27 @@ class Closet {
                 var data = value[i] as! [String: String]
                 var clothingItem = Clothing(cat: data["cat"]! as! String, color: data["color"]! as! String, id: i, desc: data["description"]! as! String, tag: data["tag"]! as! String)
                 self.topClothing.append(clothingItem)
-                self.topClothing[(self.topClothing.count)-1].addImage()
+                self.topClothing[(self.topClothing.count)-1].addImage(completion: {(b) in
+                    
+                })
             }
             
             for i in self.botIds! {
                 var data = value[i] as! [String: String]
                 var clothingItem = Clothing(cat: data["cat"]! as! String, color: data["color"]! as! String, id: i, desc: data["description"]! as! String, tag: data["tag"]! as! String)
                 self.botClothing.append(clothingItem)
-                self.botClothing[(self.botClothing.count)-1].addImage()
+                self.botClothing[(self.botClothing.count)-1].addImage(completion: {(b) in
+                    
+                })
             }
             
             for i in self.shoeIds! {
                 var data = value[i] as! [String: String]
                 var clothingItem = Clothing(cat: data["cat"]! as! String, color: data["color"]! as! String, id: i, desc: data["description"]! as! String, tag: data["tag"]! as! String)
                 self.shoeClothing.append(clothingItem)
-                self.shoeClothing[(self.shoeClothing.count)-1].addImage()
+                self.shoeClothing[(self.shoeClothing.count)-1].addImage(completion: {(b) in
+                    
+                })
             }
         })
         

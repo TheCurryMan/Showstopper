@@ -9,6 +9,7 @@
 import UIKit
 import ChameleonFramework
 import Firebase
+import Alamofire
 
 class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topImageView: UIImageView!
@@ -26,16 +27,26 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var cu = User.currentUser
+    var trendingOutfit = Outfit()
+    var trendingURLs = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(cu.collection)
+        
         self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [HexColor("#ee0979")!, HexColor("#ff6a00")!])
         
         self.collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "outfit")
         
-        cu.collection = [cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!]
+        //cu.collection = [cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!]
         
         // Do any additional setup after loading the view.
+        
+        getTrendingData(completion: {(b) in
+            self.trendingTopImage.image = self.trendingOutfit.upperBody?.img
+            self.trendingBotImage.image = self.trendingOutfit.lowerBody?.img
+            self.trendingShoeImage.image = self.trendingOutfit.shoes?.img
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +74,42 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
     
     @IBAction func dismissView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func getTrendingData(completion: @escaping (Bool) -> Void) {
+        let requestString = "http://mysterious-shelf-30539.herokuapp.com/findhottest"
+        
+        Alamofire.request(requestString, method: .get, parameters: nil, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { (response) in
+            
+            guard let status = response.response?.statusCode else {
+                print("unable to get status code")
+                return
+            }
+            if status != 200   {
+                print("Staus: \(status)")
+            }
+            
+            guard let result = response.result.value, let json = result as? NSDictionary else {
+                print("failed to get the response")
+                return
+            }
+            
+            if let clothingIds = json["clothing_id"] as? [String:String] {
+                User.currentUser.getClothingData(i: clothingIds["top"]!, completion:{(top) in
+                    User.currentUser.getClothingData(i: clothingIds["bot"]!, completion: {(bot) in
+                        User.currentUser.getClothingData(i: clothingIds["sho"]!, completion: {(shoe) in
+                            self.trendingOutfit = Outfit(upperBody: top, lowerBody: bot, shoes: shoe)
+                            var urls = json["clothing_url"] as? [String:String]
+                            for url in (urls?.keys)! {
+                                self.trendingURLs.append(urls![url]!)
+                            }
+                            completion(true)
+                        })
+                    })
+                })
+            }
+        }
     }
     
     /*

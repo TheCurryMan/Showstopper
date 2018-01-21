@@ -101,8 +101,9 @@ class User {
             let value = snapshot.value as! [String:Any]
             var data = value[i] as! [String: String]
             var clothingItem = Clothing(cat: data["cat"]! as! String, color: data["color"]! as! String, id: i, desc: data["description"]! as! String, tag: data["tag"]! as! String)
-            clothingItem.addImage()
-            completion(clothingItem)
+            clothingItem.addImage(completion:{(b) in
+                completion(clothingItem)
+            })
         }){ (error) in
             print(error.localizedDescription)
         }

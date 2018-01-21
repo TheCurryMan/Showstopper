@@ -110,6 +110,7 @@ class LoadingMapViewController: UIViewController {
             
             if let userIds = json.allKeys as? [String] {
                 self.userIds = userIds
+                self.addToCollection()
             }
             
             for i in self.userIds {
@@ -144,6 +145,7 @@ class LoadingMapViewController: UIViewController {
         let dateStr = "\(year)-\(month)-\(day)"
         
         for i in self.userIds {
+            print(i)
             var ref :DatabaseReference = Database.database().reference()
             ref.child("users").child(i).child("outfits").child(dateStr).observe(.value, with: { (snapshot) in
                 // Get user value
