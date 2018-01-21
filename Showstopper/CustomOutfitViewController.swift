@@ -11,11 +11,13 @@ import ChameleonFramework
 
 class OutfitClothingCollectionViewCell : UICollectionViewCell {
     
+    @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet var clothingImageView: UIImageView!
 }
 
-class CustomOutfitViewController: UIViewController, UICollectionViewDataSource {
+class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var saveOutfitButton: UIButton!
     @IBOutlet weak var topCollectionView: UICollectionView!
     @IBOutlet weak var botCollectionView: UICollectionView!
     @IBOutlet weak var shoeCollectionView: UICollectionView!
@@ -30,6 +32,7 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        saveOutfitButton.layer.cornerRadius = 10.0
         User.currentUser.getClosetData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCollection), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -93,24 +96,38 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource {
         
         if indexPath.row == 0 {
             cell.clothingImageView.image = initialImage
+            cell.tag = 0
         } else if indexPath.row == dataArr.count+1 {
+            cell.tag = 0
             return cell
         } else {
+            cell.tag = 1
             cell.clothingImageView.image = dataArr[indexPath.row-1].img
             cell.clothingImageView.layer.cornerRadius = 10.0
             cell.clothingImageView.layer.borderColor = UIColor.white.cgColor
             cell.clothingImageView.layer.borderWidth = 2.0
         }
         return cell
-        
-        
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("tapped")
+        let cell = collectionView.cellForItem(at: indexPath) as! OutfitClothingCollectionViewCell
+        if (cell.tag == 1) {
+            if cell.selectedImageView.isHidden == false {
+                cell.selectedImageView.isHidden = true
+            } else {
+                cell.selectedImageView.isHidden = false
+            }
+        }
+    }
+    
+    @IBAction func saveOutfit(_ sender: Any) {
     }
     
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
