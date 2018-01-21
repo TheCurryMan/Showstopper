@@ -19,6 +19,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource {
     
+    @IBOutlet weak var trendingTopImage: UIImageView!
+    @IBOutlet weak var trendingBotImage: UIImageView!
+    @IBOutlet weak var trendingShoeImage: UIImageView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var cu = User.currentUser
@@ -28,6 +32,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
         self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [HexColor("#ee0979")!, HexColor("#ff6a00")!])
         
         self.collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "outfit")
+        
+        cu.collection = [cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!, cu.currentOutfit!]
         
         // Do any additional setup after loading the view.
     }
@@ -46,8 +52,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "outfit", for: indexPath) as! CustomCollectionViewCell
         let of = cu.collection[indexPath.row]
         cell.topImageView.image = of.upperBody!.img
+        cell.topImageView.layer.cornerRadius = 5.0
         cell.botImageView.image = of.lowerBody!.img
+        cell.botImageView.layer.cornerRadius = 5.0
         cell.shoeImageView.image = of.shoes!.img
+        cell.shoeImageView.layer.cornerRadius = 5.0
         return cell
         
     }

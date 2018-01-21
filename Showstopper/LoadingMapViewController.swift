@@ -126,7 +126,7 @@ class LoadingMapViewController: UIViewController {
             }, completion: {(b) in
                 UIView.animate(withDuration: 1, animations: {
                 self.foundLabel.text = "Found \(self.userIds.count) outfits"
-                self.scanLabel.isHidden = false
+                self.foundLabel.isHidden = false
                 self.scanLabel.text = "Find them in your collection"
                 self.doneButton.isHidden = false
                     self.doneButton.layer.cornerRadius = 5.0
