@@ -8,16 +8,12 @@
 
 import Foundation
 
-class Outfit {
-    var upperBody : String?
-    var lowerBody : String?
-    var shoes : String?
+struct Outfit {
+    var upperBody : Clothing?
+    var lowerBody : Clothing?
+    var shoes : Clothing?
     
-    private init() {
+    func returnOutfitData() -> [String:String] {
+        return ["topID":(upperBody?.id!)!, "botID":(lowerBody?.id!)!, "shoID":(shoes?.id!)!]
     }
-    
-    func getCurrentOutfitImages() {
-        
-    }
-    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+import Firebase
 
 class OutfitClothingCollectionViewCell : UICollectionViewCell {
     
@@ -25,6 +26,7 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
     var topImages = [UIImage(named: "shirt")]
     var botImages = [UIImage(named: "pants")]
     var shoeImages = [UIImage(named: "shoee")]
+    var tappedClothes = [Clothing]()
     
     var closet = User.currentUser.closet
     
@@ -116,14 +118,60 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
         if (cell.tag == 1) {
             if cell.selectedImageView.isHidden == false {
                 cell.selectedImageView.isHidden = true
+                var index = Int()
+                for (i,c) in tappedClothes.enumerated() {
+                    if c.img == cell.selectedImageView.image {
+                        index = i
+                    }
+                }
+                tappedClothes.remove(at: index)
             } else {
                 cell.selectedImageView.isHidden = false
+                switch (collectionView) {
+                case topCollectionView:
+                    tappedClothes.append(closet.topClothing[indexPath.row-1])
+                case botCollectionView:
+                    tappedClothes.append(closet.botClothing[indexPath.row-1])
+                case shoeCollectionView:
+                    tappedClothes.append(closet.shoeClothing[indexPath.row-1])
+                default:
+                    print("Error")
+                }
             }
         }
     }
     
     @IBAction func saveOutfit(_ sender: Any) {
+        print(tappedClothes)
+        var (up, low, sho) = (Clothing(), Clothing(), Clothing())
+        for c in tappedClothes {
+            if c.cat == "top" {
+                up = c
+            } else if c.cat == "bot" {
+                low = c
+            } else {
+                sho = c
+            }
+        }
+        User.currentUser.currentOutfit = Outfit(upperBody: up, lowerBody: low, shoes: sho)
+        saveOutfitToFirebase()
     }
+    
+    func saveOutfitToFirebase() {
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dateStr = "\(year)-\(month)-\(day)"
+        
+        let ref : DatabaseReference! = Database.database().reference()
+        ref.child("users").child("\(User.currentUser.UID!)").child("outfits").updateChildValues(["\(dateStr)":User.currentUser.currentOutfit?.returnOutfitData()])
+        
+        
+        
+    }
+    
     
 
     /*
