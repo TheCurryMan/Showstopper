@@ -26,6 +26,7 @@
 		E1F7EFAE2013B582000C2D65 /* CustomOutfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */; };
 		E1F7EFB02013C754000C2D65 /* OutfitClothingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */; };
 		E1F7EFB22013EBBE000C2D65 /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB12013EBBE000C2D65 /* Clothing.swift */; };
+		E1F7EFB420145C6A000C2D65 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOutfitViewController.swift; sourceTree = "<group>"; };
 		E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutfitClothingCollectionViewCell.xib; sourceTree = "<group>"; };
 		E1F7EFB12013EBBE000C2D65 /* Clothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
+		E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				E1F7EFB12013EBBE000C2D65 /* Clothing.swift */,
 				E1739D6320133BAA006F4260 /* SignUpViewController.swift */,
 				E1739D6520133BB2006F4260 /* LoginViewController.swift */,
+				E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */,
 				E1739D672013423E006F4260 /* TakePictureViewController.swift */,
 				E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */,
 				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
@@ -431,6 +434,7 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KDLoadingView/KDLoadingView.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -439,6 +443,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDLoadingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -510,6 +515,7 @@
 				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
 				E1F7EFB22013EBBE000C2D65 /* Clothing.swift in Sources */,
+				E1F7EFB420145C6A000C2D65 /* LoadingViewController.swift in Sources */,
 				E1F7EFAE2013B582000C2D65 /* CustomOutfitViewController.swift in Sources */,
 				E1F7EFA820136702000C2D65 /* Outfit.swift in Sources */,
 			);

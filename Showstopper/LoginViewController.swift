@@ -46,12 +46,17 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: self.emailField.text!, password: self.passwordField.text!) { (user, error) in
             if user != nil {
                 print("sign in successful")
-                User.currentUser.setUpUser()
-                var hasCurrentOutfit = User.currentUser.checkCurrentOutfit()
-                if hasCurrentOutfit {
-                    self.performSegue(withIdentifier: "home2", sender: nil)
-                }
-                self.performSegue(withIdentifier: "login", sender: nil)
+                User.currentUser.setUpUser(completion: {(b) in
+                    User.currentUser.checkCurrentOutfit(completion: {(hasCurrentOutfit) in
+                        print(hasCurrentOutfit)
+                        if hasCurrentOutfit {
+                            self.performSegue(withIdentifier: "logintoloading", sender: nil)
+                        } else {
+                            self.performSegue(withIdentifier: "logintooutfit", sender: nil)
+                        }
+                        
+                    })
+                })
             }
             else{
                 print("sign in failed")

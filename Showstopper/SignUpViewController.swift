@@ -37,14 +37,18 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             
-            User.currentUser.setUpUser()
-            var hasCurrentOutfit = User.currentUser.checkCurrentOutfit()
-            
-            if hasCurrentOutfit {
-                self.performSegue(withIdentifier: "home1", sender: nil)
-            } else {
-                self.performSegue(withIdentifier: "signin", sender: nil)
-            }
+            User.currentUser.setUpUser(completion: {(b) in
+                User.currentUser.checkCurrentOutfit(completion: {(hasCurrentOutfit) in
+                    print(hasCurrentOutfit)
+                    if hasCurrentOutfit {
+                        self.performSegue(withIdentifier: "signuptoloading", sender: nil)
+                    } else {
+                        self.performSegue(withIdentifier: "signin", sender: nil)
+                    }
+                    
+                })
+            })
+           
             
         } else {
             print("user is NOT signed in")

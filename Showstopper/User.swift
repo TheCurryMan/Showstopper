@@ -18,8 +18,9 @@ class User {
     var hasCurrentOutfit: Bool?
     var currentOutfit: Outfit?
     
+    
     static var currentUser = User()
-    let ref : DatabaseReference = Database.database().reference()
+    var ref : DatabaseReference = Database.database().reference()
     
     private init() {
     }
@@ -28,16 +29,19 @@ class User {
         UID = Auth.auth().currentUser?.uid
     }
     
-    func setUpUser() {
+    func setUpUser(completion: @escaping (Bool) -> Void) {
         UID = Auth.auth().currentUser?.uid
         
-        ref.child("users").child(UID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref = Database.database().reference()
+        ref.child("users").child(UID!).observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
             self.name = value?["name"] as? String
-            //self.location = (value?["lat"] as! Float, value?["long"] as! Float)
-            //self.closet = value?["closet"]
             
+            //self.location = (value?["lat"] as! Float, value?["long"] as! Float)
+            //self.closet = value?["closet"]xc
+            
+        completion(true)
             
         }) { (error) in
             print(error.localizedDescription)
@@ -45,6 +49,7 @@ class User {
     }
     
     func getClosetData() {
+        ref = Database.database().reference()
         ref.child("users").child(UID!).child("closet").observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -56,39 +61,53 @@ class User {
             print(error.localizedDescription)
         }
     }
-    func checkCurrentOutfit() -> Bool{
-        var outfitBool = false
-        ref.child("users").child(UID!).child("outfits").observeSingleEvent(of: .value, with: { (snapshot) in
+    
+    func checkCurrentOutfit(completion: @escaping (Bool) -> Void){
+        print(UID!)
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dateStr = "\(year)-\(month)-\(day)"
+        
+        ref.child("users").child(UID!).child("outfits").observe(.value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
-            
-            if value == nil {
-                outfitBool = false
+            if let outfit = value?["\(dateStr)"] as? [String: String]{
+                
+                User.currentUser.getClothingData(i: outfit["topID"]!, completion:{(top) in
+                    User.currentUser.getClothingData(i: outfit["botID"]!, completion: {(bot) in
+                        User.currentUser.getClothingData(i: outfit["shoID"]!, completion: {(shoe) in
+                            User.currentUser.currentOutfit = Outfit(upperBody: top, lowerBody: bot, shoes: shoe)
+                            completion(true)
+                        })
+                        
+                    })
+                    
+                })
+                
+                
             } else {
-            
-                let dates = value?.allKeys as? [String]
-                
-                let date = Date()
-                let calendar = Calendar.current
-                let year = calendar.component(.year, from: date)
-                let month = calendar.component(.month, from: date)
-                let day = calendar.component(.day, from: date)
-                
-                let dateStr = "\(year)-\(month)-\(day)"
-                if dates!.count > 0 {
-                    for i in dates! {
-                        if i == dateStr {
-                            outfitBool = true
-                        }
-                    }
-                }
-                outfitBool = false
+                completion(false)
             }
-            
         }) { (error) in
             print(error.localizedDescription)
         }
-        return outfitBool
+    }
+    
+    func getClothingData(i: String, completion: @escaping (Clothing) -> Void) {
+        ref.child("items").observe(.value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as! [String:Any]
+            var data = value[i] as! [String: String]
+            var clothingItem = Clothing(cat: data["cat"]! as! String, color: data["color"]! as! String, id: i, desc: data["description"]! as! String, tag: data["tag"]! as! String)
+            clothingItem.addImage()
+            completion(clothingItem)
+        }){ (error) in
+            print(error.localizedDescription)
+        }
     }
     
 }

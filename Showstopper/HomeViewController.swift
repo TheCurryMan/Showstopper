@@ -7,13 +7,33 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var topImageView: UIImageView!
+    @IBOutlet weak var botImageView: UIImageView!
+    @IBOutlet weak var shoeImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var addClothesButton: UIButton!
+    @IBOutlet weak var updateOutfitButton: UIButton!
+    
+    var curUser = User.currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: self.view.frame, andColors: [HexColor("#ee0979")!, HexColor("#ff6a00")!])
+        
+        addClothesButton.layer.cornerRadius = 10.0
+        updateOutfitButton.layer.cornerRadius = 10.0
         // Do any additional setup after loading the view.
+        topImageView.image = curUser.currentOutfit?.upperBody?.img
+        botImageView.image = curUser.currentOutfit?.lowerBody?.img
+        shoeImageView.image = curUser.currentOutfit?.shoes?.img
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +41,11 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func addClothes(_ sender: Any) {
     }
-    */
+    @IBAction func updateOutfit(_ sender: Any) {
+    }
+    
+    
 
 }

@@ -8,6 +8,7 @@ target 'Showstopper' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'KDLoadingView'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   # Pods for Showstopper
 

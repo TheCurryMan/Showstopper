@@ -46,6 +46,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.12)
+  - KDLoadingView (1.0.4)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - KDLoadingView
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -80,9 +82,10 @@ SPEC CHECKSUMS:
   FirebaseStorage: 181bb543d39ee3c53e0558de7ba86b1286a0427f
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  KDLoadingView: fcb015daf91c245f0a212fd52b8061621f421dfe
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 3a5a78778f295819784fc2816ac69a7577a77129
+PODFILE CHECKSUM: a14c422d541ef0fde17757c7414d663512637c2d
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.3.1

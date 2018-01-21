@@ -18,6 +18,7 @@ class Clothing {
     var tag: String?
     var img: UIImage!
 
+    let ref: DatabaseReference = Database.database().reference()
     let storageRef = Storage.storage().reference()
     init() {
         
@@ -47,5 +48,4 @@ class Clothing {
             }
         }
     }
-    
 }
