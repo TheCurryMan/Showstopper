@@ -11,6 +11,8 @@ target 'Showstopper' do
   pod 'KDLoadingView'
   pod 'APScheduledLocationManager'
   pod 'SwiftLocation'
+  pod 'Pulsator'
+  pod 'Alamofire'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   # Pods for Showstopper
 

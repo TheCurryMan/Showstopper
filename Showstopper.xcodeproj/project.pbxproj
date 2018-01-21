@@ -28,6 +28,7 @@
 		E1F7EFB22013EBBE000C2D65 /* Clothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB12013EBBE000C2D65 /* Clothing.swift */; };
 		E1F7EFB420145C6A000C2D65 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */; };
 		E1F7EFB620148451000C2D65 /* LoadingMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */; };
+		E1F7EFB8201484F4000C2D65 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB7201484F4000C2D65 /* Artwork.swift */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		E1F7EFB12013EBBE000C2D65 /* Clothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothing.swift; sourceTree = "<group>"; };
 		E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMapViewController.swift; sourceTree = "<group>"; };
+		E1F7EFB7201484F4000C2D65 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				E1F7EFAD2013B582000C2D65 /* CustomOutfitViewController.swift */,
 				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
 				E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */,
+				E1F7EFB7201484F4000C2D65 /* Artwork.swift */,
 				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
 				E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
@@ -440,10 +443,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Showstopper/Pods-Showstopper-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/APScheduledLocationManager/APScheduledLocationManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KDLoadingView/KDLoadingView.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulsator/Pulsator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -452,10 +457,12 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APScheduledLocationManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDLoadingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulsator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -528,6 +535,7 @@
 				E1F7EFA42013659B000C2D65 /* User.swift in Sources */,
 				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,
+				E1F7EFB8201484F4000C2D65 /* Artwork.swift in Sources */,
 				E1F7EFB22013EBBE000C2D65 /* Clothing.swift in Sources */,
 				E1F7EFB620148451000C2D65 /* LoadingMapViewController.swift in Sources */,
 				E1F7EFB420145C6A000C2D65 /* LoadingViewController.swift in Sources */,

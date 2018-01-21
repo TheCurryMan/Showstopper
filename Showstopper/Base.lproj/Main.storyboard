@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gYG-x5-xJa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SgU-NM-UFy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -422,6 +422,7 @@
                                 </state>
                                 <connections>
                                     <action selector="updateOutfit:" destination="fay-lf-X2F" eventType="touchUpInside" id="kuQ-p4-0j9"/>
+                                    <segue destination="SgU-NM-UFy" kind="presentation" id="iXa-xT-JeN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -455,27 +456,42 @@
             </objects>
             <point key="canvasLocation" x="1448.8" y="22.938530734632685"/>
         </scene>
-        <!--View Controller-->
+        <!--Loading Map View Controller-->
         <scene sceneID="Ngq-iG-IWC">
             <objects>
-                <viewController id="SgU-NM-UFy" sceneMemberID="viewController">
+                <viewController id="SgU-NM-UFy" customClass="LoadingMapViewController" customModule="Showstopper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="etn-v1-0xr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fzI-pZ-bLk">
-                                <rect key="frame" x="62" y="133" width="250" height="250"/>
+                                <rect key="frame" x="62" y="208" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="ZXA-Ny-RWo"/>
-                                    <constraint firstAttribute="height" constant="250" id="hgP-6U-Cai"/>
+                                    <constraint firstAttribute="height" constant="250" id="kJs-e1-Bbd"/>
+                                    <constraint firstAttribute="width" constant="250" id="rmA-Xu-sYk"/>
                                 </constraints>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning for nearby outfits..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMT-Tk-Qq8">
-                                <rect key="frame" x="62" y="469" width="250" height="100"/>
+                                <rect key="frame" x="62" y="490" width="250" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="u7X-CK-qT6"/>
                                     <constraint firstAttribute="height" constant="100" id="w0o-f6-daS"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqc-JV-RYs">
+                                <rect key="frame" x="137" y="607" width="100" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.93333333330000001" green="0.035294117649999998" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Found 3 Outfits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hys-Ib-XLX">
+                                <rect key="frame" x="62" y="412" width="250" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -483,17 +499,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fzI-pZ-bLk" firstAttribute="top" secondItem="foq-qp-Psc" secondAttribute="top" constant="113" id="EEQ-Oe-HK9"/>
-                            <constraint firstItem="uMT-Tk-Qq8" firstAttribute="top" secondItem="fzI-pZ-bLk" secondAttribute="bottom" constant="86" id="U4c-M7-SPI"/>
-                            <constraint firstItem="fzI-pZ-bLk" firstAttribute="centerX" secondItem="foq-qp-Psc" secondAttribute="centerX" id="Yz8-pr-sv0"/>
+                            <constraint firstItem="uMT-Tk-Qq8" firstAttribute="top" secondItem="fzI-pZ-bLk" secondAttribute="bottom" constant="32" id="H0Q-7p-Lq0"/>
+                            <constraint firstItem="fzI-pZ-bLk" firstAttribute="centerX" secondItem="foq-qp-Psc" secondAttribute="centerX" id="PLc-ms-hAx"/>
                             <constraint firstItem="uMT-Tk-Qq8" firstAttribute="centerX" secondItem="foq-qp-Psc" secondAttribute="centerX" id="keH-V7-03X"/>
+                            <constraint firstItem="fzI-pZ-bLk" firstAttribute="centerY" secondItem="foq-qp-Psc" secondAttribute="centerY" constant="-10.5" id="uka-uS-5pR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="foq-qp-Psc"/>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="Kqc-JV-RYs" id="3SY-A2-oUD"/>
+                        <outlet property="foundLabel" destination="Hys-Ib-XLX" id="0s6-m2-j2b"/>
+                        <outlet property="mapView" destination="fzI-pZ-bLk" id="Tf9-Fg-ySI"/>
+                        <outlet property="scanLabel" destination="uMT-Tk-Qq8" id="9Xe-iH-uZf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt5-qB-yF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="23"/>
+            <point key="canvasLocation" x="2133.5999999999999" y="22.938530734632685"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="snI-Gw-WUD">
