@@ -35,6 +35,7 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
         super.viewDidLoad()
     
         saveOutfitButton.layer.cornerRadius = 10.0
+        
         User.currentUser.getClosetData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCollection), name: NSNotification.Name(rawValue: "load"), object: nil)
@@ -76,6 +77,10 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
         default:
             return 0
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        User.currentUser.closet = Closet()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

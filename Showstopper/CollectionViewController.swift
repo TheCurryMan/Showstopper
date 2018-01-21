@@ -10,6 +10,7 @@ import UIKit
 import ChameleonFramework
 import Firebase
 import Alamofire
+import WebKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var topImageView: UIImageView!
@@ -23,6 +24,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var trendingTopImage: UIImageView!
     @IBOutlet weak var trendingBotImage: UIImageView!
     @IBOutlet weak var trendingShoeImage: UIImageView!
+    @IBOutlet weak var webView: WKWebView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -73,7 +75,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
     }
     
     @IBAction func dismissView(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if webView.isHidden == false {
+            webView.isHidden = true
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     
@@ -110,6 +116,27 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
                 })
             }
         }
+    }
+    
+    @IBAction func topButtonStore(_ sender: Any) {
+        let myURL = URL(string: self.trendingURLs[0])
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+        webView.isHidden = false
+    }
+    
+    @IBAction func botButtonStore(_ sender: Any) {
+        let myURL = URL(string: self.trendingURLs[1])
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+         webView.isHidden = false
+    }
+    
+    @IBAction func shoeButtonStore(_ sender: Any) {
+        let myURL = URL(string: self.trendingURLs[2])
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+         webView.isHidden = false
     }
     
     /*
