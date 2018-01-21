@@ -29,6 +29,8 @@
 		E1F7EFB420145C6A000C2D65 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */; };
 		E1F7EFB620148451000C2D65 /* LoadingMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */; };
 		E1F7EFB8201484F4000C2D65 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB7201484F4000C2D65 /* Artwork.swift */; };
+		E1F7EFBA20149EDE000C2D65 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7EFB920149EDE000C2D65 /* CollectionViewController.swift */; };
+		E1F7EFBC2014A745000C2D65 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7EFBB2014A744000C2D65 /* CustomCollectionViewCell.xib */; };
 		F64758E4B2C4B9E6699BD838 /* Pods_Showstopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F714573B7F9B449176C2A16 /* Pods_Showstopper.framework */; };
 		FE011A76C49B619F6E9190FF /* Pods_ShowstopperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972D475BAB469AF85BD3182E /* Pods_ShowstopperTests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,8 @@
 		E1F7EFB320145C6A000C2D65 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMapViewController.swift; sourceTree = "<group>"; };
 		E1F7EFB7201484F4000C2D65 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		E1F7EFB920149EDE000C2D65 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E1F7EFBB2014A744000C2D65 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,9 +182,11 @@
 				E1F7EFAB2013B375000C2D65 /* HomeViewController.swift */,
 				E1F7EFB520148451000C2D65 /* LoadingMapViewController.swift */,
 				E1F7EFB7201484F4000C2D65 /* Artwork.swift */,
+				E1F7EFB920149EDE000C2D65 /* CollectionViewController.swift */,
 				E1739D6920134643006F4260 /* TakePictureCollectionViewCell.xib */,
 				E1F7EFAF2013C754000C2D65 /* OutfitClothingCollectionViewCell.xib */,
 				E1739D372013392B006F4260 /* Main.storyboard */,
+				E1F7EFBB2014A744000C2D65 /* CustomCollectionViewCell.xib */,
 				E1739D3A2013392B006F4260 /* Assets.xcassets */,
 				E1739D3C2013392B006F4260 /* LaunchScreen.storyboard */,
 				E1739D3F2013392B006F4260 /* Info.plist */,
@@ -334,6 +340,7 @@
 				E1739D3B2013392B006F4260 /* Assets.xcassets in Resources */,
 				E1739D392013392B006F4260 /* Main.storyboard in Resources */,
 				E1F7EFB02013C754000C2D65 /* OutfitClothingCollectionViewCell.xib in Resources */,
+				E1F7EFBC2014A745000C2D65 /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +539,7 @@
 				E1F7EFAA20136907000C2D65 /* Closet.swift in Sources */,
 				E1739D6420133BAA006F4260 /* SignUpViewController.swift in Sources */,
 				E1F7EFAC2013B375000C2D65 /* HomeViewController.swift in Sources */,
+				E1F7EFBA20149EDE000C2D65 /* CollectionViewController.swift in Sources */,
 				E1F7EFA42013659B000C2D65 /* User.swift in Sources */,
 				E1739D682013423E006F4260 /* TakePictureViewController.swift in Sources */,
 				E1739D342013392B006F4260 /* AppDelegate.swift in Sources */,

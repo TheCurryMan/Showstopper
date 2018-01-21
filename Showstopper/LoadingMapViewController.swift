@@ -15,6 +15,7 @@ import Alamofire
 
 class LoadingMapViewController: UIViewController {
     
+    @IBOutlet weak var mapViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var foundLabel: UILabel!
     @IBOutlet weak var scanLabel: UILabel!
@@ -40,9 +41,9 @@ class LoadingMapViewController: UIViewController {
         // show artwork on map
         let artwork = Artwork(coordinate: CLLocationCoordinate2D(latitude: 36.99434, longitude: -122.07))
         mapView.addAnnotation(artwork)
-        
-        
         addHalo()
+        
+        updateToNetwork(userId: "02")
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,23 +87,23 @@ class LoadingMapViewController: UIViewController {
         pulsator.start()
     }
     
-    func updateToNetwork(userId: String, speechId: String, completion: @escaping ((Result<Void>) -> Void)) {
+    func updateToNetwork(userId: String) {
         let requestString = "http://mysterious-shelf-30539.herokuapp.com/geo"
         
-        let params =  ["id": User.currentUser.UID!] as Parameters
+        let params =  ["id": userId] as Parameters
         
         Alamofire.request(requestString, method: .get, parameters: params, encoding: URLEncoding(destination: .queryString), headers: nil).responseJSON { (response) in
             
             guard let status = response.response?.statusCode else {
-                completion(.failure("unable to get status code" as! Error))
+                print("unable to get status code")
                 return
             }
             if status != 200   {
-                completion(.failure("Staus: \(status)" as! Error))
+                print("Staus: \(status)")
             }
             
             guard let result = response.result.value, let json = result as? NSDictionary else {
-                completion(.failure("failed to get the response" as! Error))
+                print("failed to get the response")
                 return
             }
             
@@ -117,63 +118,25 @@ class LoadingMapViewController: UIViewController {
                 }
             }
             
+            self.mapViewConstraint.constant = -180
             UIView.animate(withDuration: 1, animations: {
-                self.mapView.frame.origin.y -= 100
+                self.view.layoutIfNeeded()
                 self.pulsator.stop()
             }, completion: {(b) in
+                UIView.animate(withDuration: 1, animations: {
                 self.foundLabel.text = "Found \(self.userIds.count) outfits"
                 self.scanLabel.isHidden = false
                 self.scanLabel.text = "Find them in your collection"
                 self.doneButton.isHidden = false
+                    self.doneButton.layer.cornerRadius = 5.0
+                })
             })
-            
-            
-            //{'00': (37.000003, -122.000002), '01': (37.000003, -122.000002), '03': (37.000009, -122.000004)}
-            
-            /*
-            if let wpm = json["wpm"] as? Double {
-                self.feedback.wpm = wpm
-            }
-            
-            if let pausing = json["pausing"] as? String {
-                self.feedback.pausing = pausing
-            }
-            
-            if  let similarity = json["similarity"] as? Double {
-                self.feedback.similarity = similarity
-            }
-            
-            if let loudness = json["loudness"]  as? String {
-                self.feedback.loudness = loudness
-            }
-            
-            if let score = json["score"] as? Double {
-                self.feedback.score = score
-            }
-            
-            if let pastData = json["wpm"] as? [String:AnyObject] {
-                
-                if let wpm = pastData["wpm"] as? Bool {
-                    self.feedback.pastData.wpm = wpm
-                }
-                
-                if let pausing = pastData["pausing"] as? Bool {
-                    self.feedback.pastData.pausing = pausing
-                }
-                
-                if  let similarity = pastData["similarity"] as? Bool {
-                    self.feedback.pastData.similarity = similarity
-                }
-                
-                if let loudness = pastData["loudness"]  as? Bool {
-                    self.feedback.pastData.loudness = loudness
-                }
-            }
-            
-            self.displayFeedackMessage()
-            
-            completion(.success(())) */
         }
     }
+    
+    @IBAction func done(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
