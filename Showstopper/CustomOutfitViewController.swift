@@ -45,7 +45,7 @@ class CustomOutfitViewController: UIViewController, UICollectionViewDataSource, 
         shoeCollectionView.register(UINib(nibName: "OutfitClothingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "outfitphoto")
         // Do any additional setup after loading the view.
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             self.reloadCollection()
         })
     }

@@ -24,8 +24,9 @@ class LoadingMapViewController: UIViewController {
     var locManager = CLLocationManager()
     var newPin = MKPointAnnotation()
     var pulsator = Pulsator()
-    
+    var ref :DatabaseReference = Database.database().reference()
     var userIds = [String]()
+    let storageRef = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class LoadingMapViewController: UIViewController {
         mapView.addAnnotation(artwork)
         addHalo()
         
-        updateToNetwork(userId: "02")
+        updateToNetwork(userId: User.currentUser.UID!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -146,19 +147,45 @@ class LoadingMapViewController: UIViewController {
         
         for i in self.userIds {
             print(i)
-            var ref :DatabaseReference = Database.database().reference()
             ref.child("users").child(i).child("outfits").child(dateStr).observe(.value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? NSDictionary
                 User.currentUser.getClothingData(i: value!["topID"] as! String, completion:{(top) in
-                    User.currentUser.getClothingData(i: value!["botID"] as! String, completion: {(bot) in
-                        User.currentUser.getClothingData(i: value!["shoID"] as! String, completion: {(shoe) in
-                            User.currentUser.collection.append(Outfit(upperBody: top, lowerBody: bot, shoes: shoe))
+                    self.addOtherUserImage(userID: i, picID: value!["topID"] as! String, completion: {(topimg) in
+                        top.img = topimg
+                        User.currentUser.getClothingData(i: value!["botID"] as! String, completion: {(bot) in
+                            self.addOtherUserImage(userID: i, picID: value!["botID"] as! String, completion: {(botimg) in
+                                bot.img = botimg
+                            User.currentUser.getClothingData(i: value!["shoID"] as! String, completion: {(shoe) in
+                                self.addOtherUserImage(userID: i, picID: value!["shoID"] as! String, completion: {(shoimg) in
+                                    shoe.img = shoimg
+                                User.currentUser.collection.append(Outfit(upperBody: top, lowerBody: bot, shoes: shoe))
+                                })
+                                
+                            })
                         })
+                    })
                     })
                 })
             }) { (error) in
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addOtherUserImage(userID:String, picID:String, completion: @escaping (UIImage) -> Void) {
+        print("DOWNLOADING IMAGE")
+        let imageURL = "\(userID)" + "/" + picID + ".jpeg"
+        let imageRef = storageRef.child(imageURL)
+        imageRef.downloadURL { url, error in
+            if let error = error {
+                print("WE HAVE AN ERROR")
+                completion(UIImage())
+                // Handle any errors
+            } else {
+                let data = try! Data(contentsOf: url!)
+                let image = UIImage(data: data as Data)
+                completion(image!)
             }
         }
     }
